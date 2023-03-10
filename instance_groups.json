@@ -1,0 +1,30 @@
+[
+	{
+		"InstanceGroupType": "MASTER", 
+		"InstanceCount": 1, 
+		"InstanceType": "m5.xlarge", 
+		"EbsConfiguration":{
+			"EbsOptimized": true,
+			"EbsBlockDeviceConfigs":[{
+				"VolumeSpecification":{
+					"VolumeType": "gp2",
+					"SizeInGB": 30
+				}
+			}]
+		}
+	}, 
+	{
+		"InstanceGroupType": "CORE", 
+		"InstanceCount": 1,
+		"InstanceType": "m5.xlarge",
+		"EbsConfiguration":{
+			"EbsOptimized": true,
+			"EbsBlockDeviceConfigs":[{
+				"VolumeSpecification":{
+					"VolumeType": "gp2",
+					"SizeInGB": 30
+				}
+			}]
+		}
+	}
+]
