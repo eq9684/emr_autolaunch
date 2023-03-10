@@ -1,0 +1,94 @@
+[
+    {
+        "Classification": "hive-site",
+        "Properties": {
+            "javax.jdo.option.ConnectionURL": "jdbc:mysql://RDS_HOST:3306/hive?createDatabaseIfNotExist=true",
+            "javax.jdo.option.ConnectionDriverName": "org.mariadb.jdbc.Driver",
+            "javax.jdo.option.ConnectionUserName": "RDS_ADMIN",
+            "javax.jdo.option.ConnectionPassword": "RDS_PASSWORD"
+        }
+    },
+    {
+        "Classification": "hue-ini",
+        "Properties": {},
+        "Configurations": [
+            {
+                "Classification": "desktop",
+                "Properties": {},
+                "Configurations": [
+                    {
+                        "Classification": "database",
+                        "Properties": {
+                            "name": "hue",
+                            "user": "RDS_ADMIN",
+                            "password": "RDS_PASSWORD",
+                            "host": "RDS_HOST",
+                            "port": "3306",
+                            "engine": "mysql"
+                        },
+                        "Configurations": []
+                    },
+                    {
+                        "Classification": "auth",
+                        "Properties": {
+                            "backend": "desktop.auth.backend.LdapBackend"
+                        }
+                    },
+                    {
+                        "Classification": "ldap",
+                        "Properties": {
+                            "create_users_on_login": "false"
+                        },
+                        "Configurations": [
+                            {
+                                "Classification": "ldap_servers",
+                                "Properties": {},
+                                "Configurations": [
+                                    {
+                                        "Classification": "AWSBuilder",
+                                        "Properties": {
+                                            "base_dn": "dc=awsbuilder,dc=cn",
+                                            "ldap_url": "LDAP_HOST",
+                                            "use_start_tls": "false",
+                                            "bind_dn": "cn=admin,dc=awsbuilder,dc=cn",
+                                            "bind_password": "LDAP_PASSWORD",
+                                            "search_bind_authentication": "true"
+                                        },
+                                        "Configurations": [
+                                            {
+                                                "Classification": "users",
+                                                "Properties": {
+                                                    "user_filter": "objectclass=Person",
+                                                    "user_name_attr": "cn"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Classification": "beeswax",
+                "Properties": {
+                    "close_queries": "true",
+                    "use_sasl": "false",
+                    "auth_username": "",
+                    "auth_password": ""
+                }
+            }
+        ]
+    },
+    {
+        "Classification": "oozie-site",
+        "Properties": {
+            "oozie.service.JPAService.jdbc.driver": "org.mariadb.jdbc.Driver",
+            "oozie.service.JPAService.jdbc.url": "jdbc:mysql://RDS_HOST:3306/oozie?createDatabaseIfNotExist=true",
+            "oozie.service.JPAService.jdbc.username": "RDS_ADMIN",
+            "oozie.service.JPAService.jdbc.password": "RDS_PASSWORD"
+        },
+        "Configurations": []
+    }
+]
