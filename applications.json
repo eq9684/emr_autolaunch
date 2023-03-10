@@ -1,0 +1,29 @@
+[
+	{
+		"Name": "FLINK"
+	},
+	{
+		"Name": "HADOOP"
+	},
+	{
+		"Name": "HUE"
+	},
+	{
+		"Name": "TEZ"
+	},
+	{
+		"Name": "HIVE"
+	}, 
+	{
+		"Name": "OOZIE"
+	},
+	{
+		"Name": "PIG"
+	},
+	{
+		"Name": "SPARK"
+	},
+	{
+		"Name": "TRINO"
+	}
+]
